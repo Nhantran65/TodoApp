@@ -11,7 +11,7 @@ This is a TodoApp project which can be used to CRUD tasks using functional CI/CD
 
 ### Option 1 : Steps to Run the Application Locally
 1. Ensure that Node.js is installed on your computer. If not, you can obtain it from the official website.
-2. Clone the project repository to your local machine using `git clone https://gitlab.tamk.cloud/nhantran/2023-nhantran-project.git`.
+2. Clone the project repository to your local machine using `git clone https://github.com/se-5G00DM04/2023-ntran-project.git`.
 3. Use the `cd` command to navigate to the project's root directory.
 4. Install the necessary dependencies for both the frontend and backend components by executing the command `npm install` in their respective directories.
 5. Initiate the backend server by navigating to the backend directory and executing `npm run dev`. The server will start and be accessible at  `http://localhost:5000`.
