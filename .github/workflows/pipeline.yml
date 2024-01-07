@@ -1,8 +1,8 @@
 env:
   REGISTRY: ghcr.io
   REPOSITORY: ${{ github.repository }}
-  FRONTEND_IMAGE_NAME: se-5g00dm04/haha-frontend
-  BACKEND_IMAGE_NAME: se-5g00dm04/haha-backend
+  FRONTEND_IMAGE_NAME: se-5G00DM04/2023-ntran-project
+  BACKEND_IMAGE_NAME: se-5g00dm04/2023-ntran-project
 
 # This is the teams CD/CD pipeline
 name: CI/CD
