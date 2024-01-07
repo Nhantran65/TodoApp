@@ -4,7 +4,6 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-FROM nginx:1.25.2
-COPY --from=0 /app/build /usr/share/nginx/html
+RUN npm install -g serve
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "serve", "-s", "-l", "80", "./build" ]
