@@ -6,8 +6,18 @@ on:
       - '*'
 
 jobs: 
-  test:
+  build:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker Images
+        run: docker-compose build
+
+  test:
+    runs-on: ubuntu-latest  
 
     steps:
     - name: Checkout code
@@ -68,11 +78,11 @@ jobs:
 
       - name: Copy files
         run: |
-          sshpass -p 'pass' rsync -avz --exclude="vpn.log" -e "ssh -i ~/.ssh/id_rsa" --exclude=".git" ./ student@172.16.6.255:~/app_folder
+          sshpass -p 'baochau2903' rsync -avz --exclude="vpn.log" -e "ssh -i ~/.ssh/id_rsa" --exclude=".git" ./ student@172.16.6.255:~/app_folder
 
       - name: Stop and remove running containers
         run: |
-          sshpass -p 'pass' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/2023-ntran-project && yes | docker-compose down && yes | docker system prune -a'
+          sshpass -p 'baochau2903' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/2023-ntran-project && yes | docker-compose down && yes | docker system prune -a'
 
       - name: Run docker-compose up 
         if: always()
