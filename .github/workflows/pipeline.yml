@@ -2,10 +2,10 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: 
+    branches:
       - '*'
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -17,28 +17,30 @@ jobs:
         run: docker-compose build
 
   test:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
+    needs: build
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install dependencies and run tests
-      run: |
-        cd backend
-        npm install
-        npm test
-        cd ../frontend
-        npm install
-        npm test
+      - name: Install dependencies and run tests
+        run: |
+          cd backend
+          npm install
+          npm test
+          cd ../frontend
+          npm install
+          npm test
 
   deploy:
     runs-on: ubuntu-latest
+    needs: test
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -58,7 +60,7 @@ jobs:
           echo "${{ secrets.VPN_USER_KEY }}" > user.key
           echo "${{ secrets.VPN_PASSWORD }}" > secret.txt
           echo "${{ secrets.VPN_CONFIG }}" > config.ovpn
-          
+
       - name: Connect VPN
         run: sudo openvpn --config config.ovpn --daemon --log vpn.log
 
@@ -82,16 +84,16 @@ jobs:
 
       - name: Stop and remove running containers
         run: |
-          sshpass -p 'baochau2903' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/2023-ntran-project && yes | docker-compose down && yes | docker system prune -a'
+          sshpass -p 'baochau2903' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/app_folder && yes | docker-compose down && yes | docker system prune -a'
 
-      - name: Run docker-compose up 
+      - name: Run docker-compose up
         if: always()
         run: |
-          sshpass -p 'pass' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/2023-ntran-project && docker-compose up -d'
-          
+          sshpass -p 'baochau2903' ssh -i ~/.ssh/id_rsa student@172.16.6.255 'cd ~/app_folder && docker-compose up -d'
+
       - name: Kill VPN connection
         if: always()
-        run: | 
+        run: |
           sudo chmod 777 vpn.log
           sudo killall openvpn
 
