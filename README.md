@@ -1,7 +1,8 @@
 # Web Software Production 
 
 ## Server Address and Endpoints
-( I will provide these when I go to Step 3 )
+- Frontend URL: http://172.16.6.255:8080/
+- Backend URL: http://172.16.6.255:4040/
 
 ## Team Members
 - Nhan Tran `nhan.tran@tuni.fi`
@@ -27,6 +28,7 @@ This is a TodoApp project which can be used to CRUD tasks using functional CI/CD
 ## Completed Phases
 1. Initial setup (5p)
 2. Docker localhost (5p)
+3. CI/CD Pipeline & Remote Server (5p)
 
 
 
