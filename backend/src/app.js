@@ -11,18 +11,21 @@ const api = require('./api');
 
 const app = express();
 
-const apiURL = "mongodb+srv://tranhuynhdainhan:Baochau2903-@cluster0.ag2cn7s.mongodb.net/todoApp"
+async function connectToMongoDB() {
+  try {
+    const apiURL = "mongodb+srv://tranhuynhdainhan:Baochau2903-@cluster0.ag2cn7s.mongodb.net/todoApp";
+    await mongoose.connect(apiURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+  }
+}
+
 // Connect to MongoDB
-mongoose.connect(apiURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('Error connecting to MongoDB:', error.message);
-});
+connectToMongoDB();
 
 app.use(morgan('dev'));
 app.use(helmet());
