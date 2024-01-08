@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+
+test("renders react todo header", () => {
   render(<App />);
-  const linkElement = screen.getByText(/Nhan Tran Hello world/i);
-  expect(linkElement).toBeInTheDocument();
+  const headerElement = screen.getByText(/React todo/i);
+  expect(headerElement).toBeInTheDocument();
 });
