@@ -10,7 +10,7 @@ const App = () => {
   const apiURL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    fetch(`http://172.16.6.255:4040/api/v1/tasks`).then((res) => {
+    fetch(`${apiURL}/api/v1/tasks`).then((res) => {
       res.json().then((data) => {
         setTasks(data);
         setLoading(false);
