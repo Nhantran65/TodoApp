@@ -7,8 +7,9 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const apiURL = "http://172.16.6.255:4040"
   useEffect(() => {
-    fetch(`http://172.16.6.255:4040/api/v1/tasks`).then((res) => {
+    fetch(`${apiURL}/api/v1/tasks`).then((res) => {
       res.json().then((data) => {
         setTasks(data);
         setLoading(false);
