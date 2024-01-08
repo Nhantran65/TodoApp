@@ -7,10 +7,17 @@ services:
     ports:
       - "4040:5000"
     restart: always
+    depends_on:
+      - mongodb  # Add this line to ensure the backend service starts after MongoDB
   frontend:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "8080:80"
+    restart: always
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
     restart: always
