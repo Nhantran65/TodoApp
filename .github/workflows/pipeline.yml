@@ -73,6 +73,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.DEPLOY_KEY }}" | base64 -d > ~/.ssh/id_rsa
           echo REACT_APP_API_URL=${{ secrets.BACKEND_URL }} > ./frontend/.env &&
+          echo "MONGODB_URI=${{ secrets.MONGODB_URL }t" > ./backend/.env
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 172.16.6.255 >> ~/.ssh/known_hosts
 
