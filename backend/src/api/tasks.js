@@ -22,7 +22,7 @@ const defaultTasks = [
   },
 ];
 
-// POST /api/v1/task/list
+// POST /api/v1/tasks/list
 router.post('/list', async (req, res) => {
   try {
     const { tasks } = req.body;
@@ -36,7 +36,7 @@ router.post('/list', async (req, res) => {
 });
 
 
-// GET /api/v1/task/list/:id
+// GET /api/v1/tasks/list/:id
 router.get('/list/:id', async (req, res) => {
   try {
     const { id } = req.params;
