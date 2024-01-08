@@ -29,8 +29,7 @@ This is a TodoApp project which can be used to CRUD tasks using functional CI/CD
 1. Initial setup (5p)
 2. Docker localhost (5p)
 3. CI/CD Pipeline & Remote Server (5p)
-
-
+4. Implement Features/Functionalities for the React ToDo app (10p)
 
 
 
