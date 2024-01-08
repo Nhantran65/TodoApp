@@ -27,7 +27,7 @@ const sampleList = [
 
 beforeAll(async () => {
   await mongoose.connect(
-    process.env.MONGO_URL || "mongodb://localhost:27017/tasks",
+    "mongodb+srv://tranhuynhdainhan25102004:Baochau2903@cluster0.qhp3ciw.mongodb.net/test" || "mongodb://localhost:27017/tasks",
   );
 });
 

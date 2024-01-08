@@ -2,9 +2,21 @@
 import React, { useState, useEffect } from "react";
 import TaskCard from "./components/TaskCard";
 import AddTaskButton from "./components/AddTaskButton";
+import ListButtons from "./components/ListButtons";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [list, _setList] = useState({
+    tasks: [],
+    _id: localStorage.getItem("listID") || null,
+  });
+
+  const setList = (newList) => {
+    setIsUpdated(true);
+    _setList(newList);
+    localStorage.setItem("listID", newList._id);
+  };
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
