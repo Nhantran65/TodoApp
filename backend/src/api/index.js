@@ -1,17 +1,15 @@
-const express = require("express");
+const express = require('express');
 
-const tasks = require("./tasks");
-const lists = require("./lists");
+const tasks = require('./tasks');
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.json({
-    message: "API - 👋🌎🌍🌏",
+    message: 'API - 👋🌎🌍🌏',
   });
 });
 
-router.use("/tasks", tasks);
-router.use("/task/list", lists);
+router.use('/tasks', tasks);
 
 module.exports = router;
