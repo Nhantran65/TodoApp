@@ -14,11 +14,15 @@ const app = express();
 async function connectToMongoDB() {
   try {
     const apiURL = "mongodb+srv://tranhuynhdainhan:Baochau2903-@cluster0.ag2cn7s.mongodb.net/todoApp";
-    await mongoose.connect(apiURL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('Connected to MongoDB');
+
+    // Check if running in test environment
+    if (process.env.NODE_ENV !== 'test') {
+      await mongoose.connect(apiURL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log('Connected to MongoDB');
+    }
   } catch (error) {
     console.error('Error connecting to MongoDB:', error.message);
   }
