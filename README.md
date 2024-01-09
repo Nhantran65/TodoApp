@@ -22,7 +22,7 @@ This is a TodoApp project which can be used to CRUD tasks using functional CI/CD
 
 ### Option 2 : Using Docker to run project locally
 1. Ensure that you have Docker and Docker Compose installed on your device. 
-2. Clone the project repository to your local machine using `git clone https://gitlab.tamk.cloud/nhantran/2023-ntran-project.git`.
+2. Clone the project repository to your local machine using `git clone https://github.com/se-5G00DM04/2023-ntran-project.git`.
 3. Use the `cd` command to navigate to the project's root directory.
 4. Start running the Project `docker-compose up --build`. This command will start both  Frontend and Backend services
 5. Your Frontend app will accessible at address `http://localhost:8080`, and Backend app will accessible at `http://localhost:4040`
