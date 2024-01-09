@@ -1,5 +1,7 @@
 # Web Software Production 
 
+![Alt text](image.png)
+
 ## Server Address and Endpoints
 - Frontend URL: http://172.16.6.255:8080/
 - Backend URL: http://172.16.6.255:4040/
@@ -31,8 +33,8 @@ This is a TodoApp project which can be used to CRUD tasks using functional CI/CD
 3. CI/CD Pipeline & Remote Server (5p)
 4. Implement Features/Functionalities for the React ToDo app (10p)
 5. Testing feature (5p)
-
+6. Database (3p) - Connected Database and Create CRUD endpoints for task list
 
 ## Expected Project grade and Reason for that:
-
+I think my grade should be near maximum because I have implemented almost features of this Todo App Project just only remain Frontend for last step.
 
